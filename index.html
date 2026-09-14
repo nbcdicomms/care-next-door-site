@@ -14,6 +14,7 @@
 <!-- EveryAction / NGP VAN action tag -->
 <link rel='preload' href='https://static.everyaction.com/ea-actiontag/at.js' as='script' crossorigin='anonymous'>
 <link rel='preload' href='https://static.everyaction.com/ea-actiontag/at.min.css' as='style'>
+<link rel='preload' href='https://nvlupin.blob.core.windows.net/designs/CustomStylesheet_543d8b2e63b091fb7bf929a622e15babfd4d3ec2b105b10a4603563993663873.css' as='style'>
 
 <style>
   @font-face{
@@ -125,6 +126,9 @@
   /* ---------- SECTION HEADS ---------- */
   .eyebrow{ font-family:var(--font-display); font-weight:700; font-size:13px; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:14px; }
   .section-head{ max-width:720px; margin-bottom:40px; }
+  #watch .section-head{ max-width:none; }
+  #watch .section-head h2{ text-align:center; }
+  #watch .section-head .lead{ text-align:center; margin-left:auto; margin-right:auto; max-width:640px; }
   .section-head h2{ font-size:clamp(28px,3.6vw,40px); }
   .lead{ font-size:18px; }
 
@@ -156,6 +160,15 @@
   .stat-row--magnets .magnet:nth-child(3).is-settled{ transform:translate(0,0) rotate(0deg); }
   @media (prefers-reduced-motion: reduce){
     .stat-row--magnets .magnet{ transition:none; opacity:1; transform:none !important; }
+  }
+
+  /* ---------- ABOUT (two-column with form) ---------- */
+  .about-grid{ display:grid; grid-template-columns:1.3fr 1fr; gap:var(--sp-5); align-items:start; }
+  .about-form{ position:sticky; top:100px; background:#fff; border:1px solid rgba(28,17,14,0.12); border-radius:10px; overflow:hidden; }
+  .about-form::before{ content:""; display:block; height:4px; background:var(--iridescent-h); }
+  @media (max-width:900px){
+    .about-grid{ grid-template-columns:1fr; }
+    .about-form{ position:static; }
   }
 
   /* ---------- TIMELINE ---------- */
@@ -195,11 +208,7 @@
   @media (max-width:820px){ .action-grid{ grid-template-columns:1fr; } }
 
   /* ---------- WATCH (split layout) ---------- */
-  .watch-split{ display:grid; grid-template-columns:1fr 1fr; gap:var(--sp-4); align-items:stretch; margin-top:var(--sp-2); }
-  .watch-panel{ background:rgba(10,8,7,0.6); border:1px solid rgba(255,255,255,0.16); padding:var(--sp-4); display:flex; flex-direction:column; justify-content:flex-start; border-radius:10px; }
-  .watch-panel h3{ font-size:22px; color:#fff; margin-bottom:var(--sp-1); }
-  .watch-panel p{ margin-bottom:var(--sp-2); }
-  @media (max-width:860px){ .watch-split{ grid-template-columns:1fr; } }
+  .watch-video{ max-width:880px; margin:0 auto; }
 
   .yt-embed{ position:relative; width:100%; aspect-ratio:16/9; background:#000; overflow:hidden; border:1px solid rgba(245,214,123,0.25); border-radius:10px; }
   .yt-embed.is-playable{ cursor:pointer; }
@@ -276,24 +285,37 @@
   <!-- ================= ABOUT ================= -->
   <!-- Pending: real kitchen photo for this section's background. Currently flat cream. -->
   <section class="s-cream" id="about">
-    <div class="container">
-      <div class="section-head">
-        <p class="eyebrow">About</p>
-        <h2>Who helped raise you</h2>
+    <div class="container about-grid">
+      <div class="about-copy">
+        <div class="section-head">
+          <p class="eyebrow">About</p>
+          <h2>Who helped raise you</h2>
+        </div>
+        <p class="lead">Maybe it was a grandmother who kept you through the summer. An auntie who knew how to settle you. An older cousin who taught you the newest dance. A neighbor who made room at the table. A family friend who became family.</p>
+        <p>This is Family, Friend, and Neighbor care: the care that surrounds a child with people who know their rhythms, honor their identity, and help them grow. In Black communities, it is also a living tradition shaped by shared responsibility, trust, and love across generations.</p>
+
+        <div class="callout">Family, Friend, and Neighbor care is child care provided by someone a parent or guardian knows and trusts: a grandparent, aunt, uncle, older sibling, cousin, godparent, close friend, or neighbor held within a family's circle of care.</div>
+
+        <p>For many Black families, it is a deliberate choice, offering flexibility, cultural understanding, continuity, and the deep safety of being known.</p>
+
+        <div class="stat-row stat-row--magnets" id="aboutStats">
+          <div class="magnet"><div class="num">5M+</div><div class="lbl">FFN caregivers nationwide</div></div>
+          <div class="magnet"><div class="num">11.5M</div><div class="lbl">children in their care</div></div>
+          <div class="magnet"><div class="num">No. 1</div><div class="lbl">most used form of child care in the U.S.</div></div>
+        </div>
+        <p class="source-note">Source: National Survey of Early Care and Education, 2019</p>
       </div>
-      <p class="lead">Maybe it was a grandmother who kept you through the summer. An auntie who knew how to settle you. An older cousin who taught you the newest dance. A neighbor who made room at the table. A family friend who became family.</p>
-      <p>This is Family, Friend, and Neighbor care: the care that surrounds a child with people who know their rhythms, honor their identity, and help them grow. In Black communities, it is also a living tradition shaped by shared responsibility, trust, and love across generations.</p>
 
-      <div class="callout">Family, Friend, and Neighbor care is child care provided by someone a parent or guardian knows and trusts: a grandparent, aunt, uncle, older sibling, cousin, godparent, close friend, or neighbor held within a family's circle of care.</div>
-
-      <p>For many Black families, it is a deliberate choice, offering flexibility, cultural understanding, continuity, and the deep safety of being known.</p>
-
-      <div class="stat-row stat-row--magnets" id="aboutStats">
-        <div class="magnet"><div class="num">5M+</div><div class="lbl">FFN caregivers nationwide</div></div>
-        <div class="magnet"><div class="num">11.5M</div><div class="lbl">children in their care</div></div>
-        <div class="magnet"><div class="num">No. 1</div><div class="lbl">most used form of child care in the U.S.</div></div>
+      <div class="about-form">
+        <div class="ngp-form"
+             data-form-url="https://secure.ngpvan.com/v1/Forms/lKW59vmvakSwZ2UMPOOckQ2"
+             data-custom-css="https://nvlupin.blob.core.windows.net/designs/CustomStylesheet_543d8b2e63b091fb7bf929a622e15babfd4d3ec2b105b10a4603563993663873.css"
+             data-fastaction-endpoint="https://fastaction.ngpvan.com"
+             data-inline-errors="true"
+             data-fastaction-nologin="true"
+             data-mobile-autofocus="false">
+        </div>
       </div>
-      <p class="source-note">Source: National Survey of Early Care and Education, 2019</p>
     </div>
   </section>
 
@@ -308,28 +330,16 @@
         <p class="lead">An Afrofuturist celebration of Black Family, Friend, and Neighbor care and the people building its future.</p>
       </div>
 
-      <div class="watch-split">
-        <div class="watch-panel" id="join-conversation">
-          <h3>Join the Conversation</h3>
-          <div class="ngp-form"
-               data-form-url="https://secure.ngpvan.com/v1/Forms/lKW59vmvakSwZ2UMPOOckQ2"
-               data-fastaction-endpoint="https://fastaction.ngpvan.com"
-               data-inline-errors="true"
-               data-fastaction-nologin="true"
-               data-mobile-autofocus="false">
-          </div>
-        </div>
-        <div>
-          <!--
-            YOUTUBE EMBED: replace data-yt-id below with the real YouTube video ID once live
-            (e.g. data-yt-id="dQw4w9WgXcQ"). Until then, the placeholder ID keeps this facade
-            in its "coming soon" state automatically, no other change needed at launch.
-          -->
-          <div class="yt-embed" id="ytFacade" data-yt-id="REPLACE_WITH_YOUTUBE_ID" aria-label="The Care Next Door">
-            <img src="assets/youtube-thumb.jpg" alt="Preview image for The Care Next Door">
-            <button class="yt-embed__play" aria-hidden="true" tabindex="-1"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
-            <span class="yt-embed__badge">Coming Soon</span>
-          </div>
+      <div class="watch-video">
+        <!--
+          YOUTUBE EMBED: replace data-yt-id below with the real YouTube video ID once live
+          (e.g. data-yt-id="dQw4w9WgXcQ"). Until then, the placeholder ID keeps this facade
+          in its "coming soon" state automatically, no other change needed at launch.
+        -->
+        <div class="yt-embed" id="ytFacade" data-yt-id="REPLACE_WITH_YOUTUBE_ID" aria-label="The Care Next Door">
+          <img src="assets/youtube-thumb.jpg" alt="Preview image for The Care Next Door">
+          <button class="yt-embed__play" aria-hidden="true" tabindex="-1"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+          <span class="yt-embed__badge">Coming Soon</span>
         </div>
       </div>
     </div>
