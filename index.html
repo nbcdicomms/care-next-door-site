@@ -14,7 +14,7 @@
 <!-- EveryAction / NGP VAN action tag -->
 <link rel='preload' href='https://static.everyaction.com/ea-actiontag/at.js' as='script' crossorigin='anonymous'>
 <link rel='preload' href='https://static.everyaction.com/ea-actiontag/at.min.css' as='style'>
-<link rel='preload' href='https://nvlupin.blob.core.windows.net/designs/CustomStylesheet_543d8b2e63b091fb7bf929a622e15babfd4d3ec2b105b10a4603563993663873.css' as='style'>
+<link rel='preload' href='https://nvlupin.blob.core.windows.net/designs/CustomStylesheet_23cb6058532a9329a1eae987cf3f95b7e0826d2bd76c47eb1bb8c853a785bd39.css' as='style'>
 
 <style>
   @font-face{
@@ -78,6 +78,7 @@
   /* ---------- MEDIA SECTION FRAMEWORK ---------- */
   /* Shared pattern for any section with a photo or video background */
   .section--media{ position:relative; overflow:hidden; color:#fff; padding:0; }
+  .section--media h1, .section--media h2, .section--media h3, .section--media h4{ color:#fff !important; }
   .section--media .media-bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0; }
   .section--media .media-scrim{ position:absolute; inset:0; z-index:1; }
   .section--media .media-inner{ position:relative; z-index:2; padding:var(--sp-7) 0; }
@@ -87,6 +88,7 @@
 
   /* Light variant: for backgrounds that are naturally bright (e.g. sky), flip to dark text */
   .section--media.is-light{ color:var(--ink); }
+  .section--media.is-light h1, .section--media.is-light h2, .section--media.is-light h3, .section--media.is-light h4{ color:var(--ink) !important; }
   .section--media.is-light .eyebrow{ color:var(--teal); }
   .section--media.is-light p{ color:var(--ink-soft); }
   .section--media.is-light .callout{ color:var(--ink); }
@@ -102,7 +104,7 @@
   .hero .media-bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
   .hero__content{ position:relative; z-index:2; width:100%; padding:0 0 64px; text-align:center; height:100%; display:flex; align-items:flex-end; justify-content:center; }
 
-  .btn{ display:inline-flex; align-items:center; gap:10px; font-family:var(--font-display); font-weight:700; font-size:14px; letter-spacing:0.04em; text-transform:uppercase; padding:15px 28px; border-radius:1px; text-decoration:none; border:1.5px solid transparent; cursor:pointer; transition:transform .15s ease,background .15s ease,color .15s ease,border-color .15s ease; }
+  .btn{ display:inline-flex; align-items:center; gap:10px; font-family:var(--font-display); font-weight:700; font-size:14px; letter-spacing:0.04em; text-transform:uppercase; padding:15px 28px; border-radius:10px; text-decoration:none; border:1.5px solid transparent; cursor:pointer; transition:transform .15s ease,background .15s ease,color .15s ease,border-color .15s ease; }
   .btn:hover{ transform:translateY(-1px); }
   .btn--gold{ background:var(--gold); color:var(--brown); }
   .btn--gold:hover{ background:var(--gold-bright); }
@@ -112,6 +114,7 @@
 
   /* ---------- HERO CONTINUATION ---------- */
   .hero-cont-text{ background:var(--teal-deep); color:#fff; padding-top:var(--sp-7); padding-bottom:var(--sp-7); }
+  .hero-cont-text h1, .hero-cont-text h2, .hero-cont-text h3, .hero-cont-text h4{ color:#fff !important; }
   .hero-cont__statement{ font-family:var(--font-display); font-weight:700; font-size:clamp(24px,3.4vw,36px); max-width:820px; margin:0 auto var(--sp-3); text-align:center; }
   .hero-cont__copy{ color:var(--cream-dim); font-size:17px; max-width:680px; margin:0 auto var(--sp-5); text-align:center; }
   .quote-card{ position:relative; max-width:760px; margin:0 auto; padding:34px 40px; background:rgba(255,255,255,0.04); border-radius:10px; overflow:hidden; }
@@ -126,13 +129,12 @@
   /* ---------- SECTION HEADS ---------- */
   .eyebrow{ font-family:var(--font-display); font-weight:700; font-size:13px; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:14px; }
   .section-head{ max-width:720px; margin-bottom:40px; }
-  #watch .section-head{ max-width:none; }
-  #watch .section-head h2{ text-align:center; }
-  #watch .section-head .lead{ text-align:center; margin-left:auto; margin-right:auto; max-width:640px; }
+  #watch .section-head{ text-align:center; margin-left:auto; margin-right:auto; max-width:640px; }
   .section-head h2{ font-size:clamp(28px,3.6vw,40px); }
   .lead{ font-size:18px; }
 
   .s-cream{ background:var(--cream); }
+  .s-cream h1, .s-cream h2, .s-cream h3, .s-cream h4{ color:var(--ink) !important; }
   .s-cream .eyebrow{ color:var(--teal); }
   .s-cream p{ color:var(--ink-soft); }
   .s-cream .callout{ color:var(--ink); }
@@ -169,6 +171,16 @@
   @media (max-width:900px){
     .about-grid{ grid-template-columns:1fr; }
     .about-form{ position:static; }
+  }
+
+  /* ---------- LEGACY (two-column with photo) ---------- */
+  .legacy-grid{ display:grid; grid-template-columns:1.3fr 1fr; gap:var(--sp-5); align-items:start; margin-bottom:var(--sp-6); }
+  .legacy-panel{ background:rgba(255,255,255,0.6); backdrop-filter:blur(2px); border-radius:10px; padding:var(--sp-4); }
+  .legacy-image img{ width:100%; border-radius:10px; }
+  .legacy-image{ position:sticky; top:100px; }
+  @media (max-width:900px){
+    .legacy-grid{ grid-template-columns:1fr; }
+    .legacy-image{ position:static; max-width:420px; }
   }
 
   /* ---------- TIMELINE ---------- */
@@ -294,9 +306,9 @@
         <p class="lead">Maybe it was a grandmother who kept you through the summer. An auntie who knew how to settle you. An older cousin who taught you the newest dance. A neighbor who made room at the table. A family friend who became family.</p>
         <p>This is Family, Friend, and Neighbor care: the care that surrounds a child with people who know their rhythms, honor their identity, and help them grow. In Black communities, it is also a living tradition shaped by shared responsibility, trust, and love across generations.</p>
 
-        <div class="callout">Family, Friend, and Neighbor care is child care provided by someone a parent or guardian knows and trusts: a grandparent, aunt, uncle, older sibling, cousin, godparent, close friend, or neighbor held within a family's circle of care.</div>
+        <div class="callout">Family, Friend, and Neighbor care is child care provided by someone a parent or guardian already knows and trusts, chosen from within a family's own circle of care.</div>
 
-        <p>For many Black families, it is a deliberate choice, offering flexibility, cultural understanding, continuity, and the deep safety of being known.</p>
+        <p>For many Black families, it is a deliberate choice, built on trust and familiarity.</p>
 
         <div class="stat-row stat-row--magnets" id="aboutStats">
           <div class="magnet"><div class="num">5M+</div><div class="lbl">FFN caregivers nationwide</div></div>
@@ -309,7 +321,7 @@
       <div class="about-form">
         <div class="ngp-form"
              data-form-url="https://secure.ngpvan.com/v1/Forms/lKW59vmvakSwZ2UMPOOckQ2"
-             data-custom-css="https://nvlupin.blob.core.windows.net/designs/CustomStylesheet_543d8b2e63b091fb7bf929a622e15babfd4d3ec2b105b10a4603563993663873.css"
+             data-custom-css="https://nvlupin.blob.core.windows.net/designs/CustomStylesheet_23cb6058532a9329a1eae987cf3f95b7e0826d2bd76c47eb1bb8c853a785bd39.css"
              data-fastaction-endpoint="https://fastaction.ngpvan.com"
              data-inline-errors="true"
              data-fastaction-nologin="true"
@@ -352,16 +364,27 @@
     </video>
     <div class="media-scrim" style="background:radial-gradient(ellipse at center, rgba(244,238,225,0.35) 0%, rgba(244,238,225,0.6) 100%);"></div>
     <div class="media-inner container">
-      <div class="section-head">
-        <p class="eyebrow">Legacy</p>
-        <h2>Our care has always carried us forward</h2>
-      </div>
-      <p class="lead">Black Family, Friend, and Neighbor care reaches beyond any single home or generation. Its roots extend to communal caregiving traditions in precolonial Africa, where children were held within networks of kinship and shared responsibility.</p>
-      <p>That legacy lives in everyday acts: teaching a child a family recipe, passing down songs and stories, tending to a child's hair, recognizing a gift before the child has words for it. This care is cultural infrastructure, carrying memory, identity, language, faith, and possibility from one generation to the next.</p>
+      <div class="legacy-grid">
+        <div class="legacy-copy">
+          <div class="section-head">
+            <p class="eyebrow">Legacy</p>
+            <h2>Our care has always carried us forward</h2>
+          </div>
+          <div class="legacy-panel">
+            <p class="lead">Black Family, Friend, and Neighbor care reaches beyond any single home or generation. Its roots extend to communal caregiving traditions in precolonial Africa, where children were held within networks of kinship and shared responsibility.</p>
+            <p>That legacy lives in everyday acts: teaching a child a family recipe, passing down songs and stories, tending to a child's hair, recognizing a gift before the child has words for it. This care is cultural infrastructure. It carries a people's memory forward.</p>
 
-      <div class="quote-card quote-card--flush">
-        <p>&ldquo;My grandmother took care of me, and she took care of my son and daughter. Now I'm able to take care of my grandchildren, and I'm able to tell them how great they are and how they come from great people. Not just us, but our culture. It's rich.&rdquo;</p>
-        <cite>Featured FFN Caregiver</cite>
+            <div class="callout">Black care has always been art. Our creativity is resistance. Our joy is a form of restoration.</div>
+          </div>
+        </div>
+
+        <div class="legacy-image">
+          <img src="assets/legacy-photo.jpg" alt="Kim Keating, Director of Research at NBCDI, reviewing the historical record behind The Care Next Door">
+          <div class="quote-card quote-card--flush">
+            <p>&ldquo;My grandmother took care of me, and she took care of my son and daughter. Now I'm able to take care of my grandchildren, and I'm able to tell them how great they are and how they come from great people. Not just us, but our culture. It's rich.&rdquo;</p>
+            <cite>Featured FFN Caregiver</cite>
+          </div>
+        </div>
       </div>
 
       <div class="timeline">
@@ -383,7 +406,7 @@
         <p class="lead" style="font-size:16px;">NBCDI's Reimagining Child Care initiative brought together 51 Black FFN caregivers and parents across Detroit, Iowa, Nashville, and Philadelphia.</p>
 
         <div class="findings">
-          <div class="findings__item"><h4 style="font-size:16.5px;">Care is a source of joy, purpose, identity, and pride</h4></div>
+          <div class="findings__item"><h4 style="font-size:16.5px;">Care is a source of pride and purpose</h4></div>
           <div class="findings__item"><h4 style="font-size:16.5px;">Care moves across generations</h4></div>
           <div class="findings__item"><h4 style="font-size:16.5px;">Trust creates a distinct form of safety</h4></div>
           <div class="findings__item"><h4 style="font-size:16.5px;">Families imagine support without losing autonomy</h4></div>
@@ -411,12 +434,12 @@
       <div class="action-grid">
         <div class="action-card">
           <h4>Share the Film</h4>
-          <p>Invite your family, organization, classroom, faith community, or professional network to watch and discuss The Care Next Door.</p>
+          <p>Who in your circle needs to see this film? Invite them to watch it, then talk about it together.</p>
           <button type="button" class="btn btn--outline-dark btn--sm" id="shareFilmBtn">Share the Film</button>
         </div>
         <div class="action-card">
           <h4>Host a Screening</h4>
-          <p>Bring the film to a community gathering, conference, campus, workplace, or policymaker briefing using NBCDI's screening resources.</p>
+          <p>Bring the film to your community using NBCDI's screening resources.</p>
           <a href="https://canva.link/uv9qo3bwg4xazjz" class="btn btn--outline-dark btn--sm">Host a Screening</a>
         </div>
         <div class="action-card">
@@ -427,7 +450,7 @@
         <div class="action-card">
           <h4>Invest in the Work</h4>
           <p>Support NBCDI's efforts to shift narratives and build child care systems where Black children, families, and caregivers can thrive.</p>
-          <a href="https://www.nbcdi.org" class="btn btn--gold btn--sm">Support NBCDI</a>
+          <a href="https://secure.ngpvan.com/NZbt9Bmu9kKSg-JeGTQtFg2" class="btn btn--gold btn--sm">Support NBCDI</a>
         </div>
       </div>
     </div>
