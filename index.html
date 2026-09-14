@@ -94,12 +94,11 @@
   /* Pure video/photo title block with no text overlay (hero + hero-continued title card) */
   .title-block{ position:relative; width:100%; overflow:hidden; background:var(--brown); }
   .title-block video, .title-block img{ width:100%; height:100%; object-fit:cover; display:block; }
-  .title-block--tall{ min-height:92vh; min-height:92svh; }
+  .title-block--tall{ aspect-ratio:1440/1500; }
 
   /* ---------- HERO ---------- */
   .hero{ position:relative; background:var(--teal-deep); }
-  .hero .media-bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:contain; }
-  .hero__scrim{ position:absolute; inset:0; background:linear-gradient(to top, rgba(8,10,10,0.9) 0%, rgba(8,10,10,0.35) 20%, rgba(8,10,10,0) 42%); }
+  .hero .media-bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
   .hero__content{ position:relative; z-index:2; width:100%; padding:0 0 64px; text-align:center; height:100%; display:flex; align-items:flex-end; justify-content:center; }
 
   .btn{ display:inline-flex; align-items:center; gap:10px; font-family:var(--font-display); font-weight:700; font-size:14px; letter-spacing:0.04em; text-transform:uppercase; padding:15px 28px; border-radius:1px; text-decoration:none; border:1.5px solid transparent; cursor:pointer; transition:transform .15s ease,background .15s ease,color .15s ease,border-color .15s ease; }
@@ -152,9 +151,9 @@
   .stat-row--magnets .magnet:nth-child(2){ transform:translate(0,30px) rotate(6deg); transition-delay:0.12s; }
   .stat-row--magnets .magnet:nth-child(3){ transform:translate(40px,-18px) rotate(8deg); transition-delay:0.24s; }
   .stat-row--magnets .magnet.is-settled{ opacity:1; }
-  .stat-row--magnets .magnet:nth-child(1).is-settled{ transform:translate(0,0) rotate(-3deg); }
-  .stat-row--magnets .magnet:nth-child(2).is-settled{ transform:translate(0,0) rotate(2deg); }
-  .stat-row--magnets .magnet:nth-child(3).is-settled{ transform:translate(0,0) rotate(-2deg); }
+  .stat-row--magnets .magnet:nth-child(1).is-settled{ transform:translate(0,0) rotate(0deg); }
+  .stat-row--magnets .magnet:nth-child(2).is-settled{ transform:translate(0,0) rotate(0deg); }
+  .stat-row--magnets .magnet:nth-child(3).is-settled{ transform:translate(0,0) rotate(0deg); }
   @media (prefers-reduced-motion: reduce){
     .stat-row--magnets .magnet{ transition:none; opacity:1; transform:none !important; }
   }
@@ -258,7 +257,6 @@
     <video class="media-bg" id="heroVideo" muted loop playsinline preload="none" poster="video/hero-full-poster.jpg" aria-hidden="true">
       <source src="video/hero-full.mp4" type="video/mp4">
     </video>
-    <div class="hero__scrim"></div>
     <div class="hero__content container">
       <h1 class="visually-hidden">The Care Next Door: An Afrofuturist Celebration of Black Family, Friend and Neighbor Care</h1>
     </div>
@@ -414,8 +412,7 @@
         <div class="action-card">
           <h4>Read the Full Story</h4>
           <p>Get the research, history, and context behind The Care Next Door in one shareable document.</p>
-          <!-- TODO: link to "A Reclamation of Black Care" two-pager once the final PDF is ready -->
-          <a href="#" class="btn btn--outline-dark btn--sm">Read &ldquo;A Reclamation of Black Care&rdquo;</a>
+          <a href="https://canva.link/ckigcg1sq2ipzb3" class="btn btn--outline-dark btn--sm">&ldquo;A Reclamation of Black Care&rdquo;</a>
         </div>
         <div class="action-card">
           <h4>Invest in the Work</h4>

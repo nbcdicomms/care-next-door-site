@@ -31,5 +31,4 @@ content further down.
 ## Still placeholder / needs your input
 - Watch section: YouTube video ID (search `REPLACE_WITH_YOUTUBE_ID` in index.html)
 - "Watch the Trailer" / "Watch the Full Film" buttons currently point to `#`
-- "A Reclamation of Black Care" two-pager link points to `#` until the final PDF is ready (search `TODO` in index.html)
 - EveryAction/NGP VAN screening form is wired up and live as-is
