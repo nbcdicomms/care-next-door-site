@@ -130,6 +130,7 @@
   .eyebrow{ font-family:var(--font-display); font-weight:700; font-size:13px; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:14px; }
   .section-head{ max-width:720px; margin-bottom:40px; }
   #watch .section-head{ text-align:center; margin-left:auto; margin-right:auto; max-width:640px; }
+  #watch .eyebrow{ padding-right:0.12em; }
   .section-head h2{ font-size:clamp(28px,3.6vw,40px); }
   .lead{ font-size:18px; }
 
@@ -337,9 +338,7 @@
     <div class="media-scrim" style="background:linear-gradient(180deg, rgba(8,6,5,0.55), rgba(8,6,5,0.75));"></div>
     <div class="media-inner container">
       <div class="section-head">
-        <p class="eyebrow">Watch</p>
-        <h2>The Care Next Door</h2>
-        <p class="lead">An Afrofuturist celebration of Black Family, Friend, and Neighbor care and the people building its future.</p>
+        <p class="eyebrow">Watch the documentary</p>
       </div>
 
       <div class="watch-video">
@@ -435,7 +434,7 @@
         <div class="action-card">
           <h4>Share the Film</h4>
           <p>Who in your circle needs to see this film? Invite them to watch it, then talk about it together.</p>
-          <button type="button" class="btn btn--outline-dark btn--sm" id="shareFilmBtn">Share the Film</button>
+          <a href="https://canva.link/uj7i7a9wtpwaiml" class="btn btn--outline-dark btn--sm">Share the Film</a>
         </div>
         <div class="action-card">
           <h4>Host a Screening</h4>
@@ -577,21 +576,6 @@
     const badge = ytFacade.querySelector('.yt-embed__badge');
     if (badge) badge.remove();
   }
-
-  // Share button
-  const shareBtn = document.getElementById('shareFilmBtn');
-  shareBtn.addEventListener('click', async () => {
-    const shareData = { title: 'The Care Next Door', text: 'An Afrofuturist celebration of Black Family, Friend, and Neighbor care.', url: window.location.href };
-    if (navigator.share) {
-      try { await navigator.share(shareData); } catch(e) {}
-    } else {
-      try {
-        await navigator.clipboard.writeText(window.location.href);
-        shareBtn.textContent = 'Link Copied';
-        setTimeout(() => { shareBtn.textContent = 'Share the Film'; }, 2000);
-      } catch(e) {}
-    }
-  });
 
   // About stats: drift into place once, the first time they scroll into view
   const magnetRow = document.getElementById('aboutStats');
